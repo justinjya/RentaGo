@@ -24,7 +24,7 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     blocked = models.BooleanField(default=False)
     role = models.CharField(max_length=50, default='customer')
-    profile_photo = models.ImageField(null=True)
+    profile_photo = models.ImageField(upload_to='users/', blank=True, null=True)
 
     objects = CustomUserManager()
 
@@ -36,7 +36,7 @@ class User(AbstractUser):
 
 class Vehicle(models.Model):
     vehicle_id = models.AutoField(primary_key=True)
-    image = models.ImageField(null=True)
+    image = models.ImageField(upload_to='vehicles/', blank=True, null=True)
     type = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
     brand = models.CharField(max_length=50)
@@ -46,11 +46,14 @@ class Vehicle(models.Model):
     rating = models.FloatField(default=0)
     size = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
-    availability = models.BooleanField(default=True)
+    available = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.vehicle_id} - {self.brand} - {self.name}"
 
 class Rental(models.Model):
     rent_id = models.AutoField(primary_key=True)
-    vehichle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE, db_column='vehicle_id')
+    vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE, db_column='vehicle_id')
     username = models.ForeignKey(User, on_delete=models.CASCADE, db_column='username')
     pick_up_date = models.DateField()
     drop_off_date = models.DateField()
@@ -58,6 +61,9 @@ class Rental(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.rent_id} - {self.vehicle_id} - {self.username}"
 
 class Payment(models.Model):
     payment_id = models.AutoField(primary_key=True)
@@ -67,3 +73,6 @@ class Payment(models.Model):
     method = models.CharField(max_length=50)
     amount = models.IntegerField()
     status = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.payment_id} - {self.rent_id} - {self.username}"
