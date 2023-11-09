@@ -52,27 +52,48 @@ class Vehicle(models.Model):
         return f"{self.vehicle_id} - {self.brand} - {self.name}"
 
 class Rental(models.Model):
+    RATING_CHOICES = [
+        (0, '0'),
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    ]
+        
     rent_id = models.AutoField(primary_key=True)
     vehicle_id = models.ForeignKey(Vehicle, on_delete=models.CASCADE, db_column='vehicle_id')
     username = models.ForeignKey(User, on_delete=models.CASCADE, db_column='username')
     pick_up_date = models.DateField()
     drop_off_date = models.DateField()
-    location = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=50)
+    rating = models.IntegerField(choices=RATING_CHOICES, default=0)
 
     def __str__(self):
         return f"{self.rent_id} - {self.vehicle_id} - {self.username}"
 
 class Payment(models.Model):
+    STATUS_CHOICES = [
+        ('FAILED', 'Failed'),
+        ('PENDING', 'Pending'),
+        ('SUCCESS', 'Success'),
+    ]
+
+    METHOD_CHOICES = [
+        ('CREDIT_CARD', 'Credit Card'),
+        ('QRIS', 'QRIS'),
+        ('M_BANKING', 'M-Banking'),
+    ]
+
     payment_id = models.AutoField(primary_key=True)
     rent_id = models.ForeignKey(Rental, on_delete=models.CASCADE, db_column='rent_id')
     username = models.ForeignKey(User, on_delete=models.CASCADE, db_column='username')
     time = models.DateTimeField(auto_now_add=True)
-    method = models.CharField(max_length=50)
+    method = models.CharField(max_length=50, choices=METHOD_CHOICES)
     amount = models.IntegerField()
-    status = models.CharField(max_length=50)
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES)
 
     def __str__(self):
-        return f"{self.payment_id} - {self.rent_id} - {self.username}"
+        return f"{self.payment_id} - {self.rent_id} - {self.username}" 
