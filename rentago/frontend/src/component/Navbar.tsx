@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Box,
   Flex,
@@ -35,7 +37,7 @@ export default function Navbar() {
               variant='unstyled'
               cursor={'pointer'}
               color={'#F9F9FB'}
-              >
+              _hover={{transform: 'scale(1.02)'}}>
               RentaGo
             </Text>
           </Link>
@@ -49,7 +51,8 @@ export default function Navbar() {
                   fontSize={'md'} 
                   fontWeight={400} 
                   color={'#F9F9FB'}
-                  variant={'link'}>
+                  variant={'link'}
+                  _hover={{transform: 'scale(1.1)'}}>
                     Register
                 </Button>
                 <Button
@@ -59,7 +62,8 @@ export default function Navbar() {
                   fontWeight={400} 
                   color={'#F9F9FB'}
                   variant={'link'} 
-                  mr={9}>
+                  mr={9}
+                  _hover={{transform: 'scale(1.1)'}}>
                     Login
                 </Button>
               </Stack>
