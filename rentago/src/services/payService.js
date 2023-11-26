@@ -15,19 +15,21 @@ export const pay = async (supabase, paymentMethod, amount, status, username, ren
         return false
     }
 
-    const paymentId = data[0].payment_id
-    const ONE_SECOND = 1000
-    const DUE_INTERVAL = ONE_SECOND * 15
-    const { error: taskError } = await supabase
-        .from('scheduled_tasks')
-        .insert([{
-            payment_id: paymentId,
-            due_time: new Date(Date.now() + DUE_INTERVAL )
-        }])
-
-    if (taskError) {
-        console.error(taskError)
-        return false
+    if (status === 'Pending') {
+        const paymentId = data[0].payment_id
+        const ONE_SECOND = 1000
+        const DUE_INTERVAL = ONE_SECOND * 15
+        const { error: taskError } = await supabase
+            .from('scheduled_tasks')
+            .insert([{
+                payment_id: paymentId,
+                due_time: new Date(Date.now() + DUE_INTERVAL )
+            }])
+    
+        if (taskError) {
+            console.error(taskError)
+            return false
+        }
     }
 
     return true

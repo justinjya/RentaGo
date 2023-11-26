@@ -32,7 +32,7 @@ export default function History() {
   const [userHistory, setUserHistory] = useState<any[]>([]);
   useEffect(() => {
     if (rental) {
-      navigate("/payment");
+      navigate("/pay");
     }
 
     async function fetchUserHistory() {
@@ -98,10 +98,10 @@ export default function History() {
           <Image
             src={item.image}
             alt={item.name}
-            boxSize="150px"
             mr={5}
-            w={193}
-            h={120}
+            w={200}
+            h={130}
+            objectFit={'cover'}
           />
           <VStack align="start" justify="start" spacing={1}>
             <Flex direction={'row'} justify={'space-between'}>  

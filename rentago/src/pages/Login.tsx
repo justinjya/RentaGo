@@ -76,7 +76,7 @@ export default function LoginPage() {
     const timer = setTimeout(() => {
       setIsForgotPassword(false)
       setIsResetLinkSent(false)
-    }, 1060)
+    }, 1500)
 
     return () => {
         clearTimeout(timer)

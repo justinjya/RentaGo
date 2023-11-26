@@ -43,16 +43,15 @@ export default function RentalPage() {
     const { vehicle, setVehicle, rental, setRental, pickupDate, dropoffDate, location } = useDetails();
     useEffect(() => {
         if (rental) {
-            navigate("/payment");
+            navigate("/pay");
         }
         if (pickupDate && dropoffDate && vehicle === null) {
             navigate('/catalogue');
-            return;
         }
         else if (!pickupDate || !dropoffDate || location === "" || vehicle === null) {
             navigate('/');
-            return;
         }
+        return;
     })
 
     const { isOpen: isLoginPopupOpen, onOpen: openLoginPopup, onClose: closeLoginPopup } = useDisclosure();
@@ -80,13 +79,13 @@ export default function RentalPage() {
             }
             else {
                 const vehicle_id = vehicle.vehicle_id;
-                const data = await rent(supabase, pickupDate, dropoffDate, firstName, lastName, phoneNumber, username, vehicle_id,);
+                const data = await rent(supabase, pickupDate, dropoffDate, firstName, lastName, phoneNumber, username, vehicle_id);
                 
                 if (data) {
                     const rental = data[0]
                     setRental(rental);
                 }
-                navigate("/payment");
+                navigate("/pay");
             }
         }
       };
@@ -124,8 +123,8 @@ export default function RentalPage() {
                             <Image
                             src={vehicle.image}
                             alt={vehicle.name}
-                            w={193}
-                            h={150}
+                            w={200}
+                            h={130}
                             objectFit="scale-down"
                             objectPosition="center"
                             mr={5}

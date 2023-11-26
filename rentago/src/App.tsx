@@ -63,8 +63,8 @@ function App() {
                 <Routes>
                   <Route path="/" element={<LandingPage />} />
                   <Route path="/catalogue" element={<Catalog />} />
-                  <Route path="/rental" element={<Rental />} />
-                  <Route path="/payment" element={<Payment />} />
+                  <Route path="/rent" element={<Rental />} />
+                  <Route path="/pay" element={<Payment />} />
                   <Route path="/history" element={<History />} />
                   <Route path="/profile" element={<ProfilePage />} />
                 </Routes>
