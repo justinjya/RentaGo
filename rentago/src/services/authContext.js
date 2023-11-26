@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
         }
 
         checkAuthentication();
-    }, [])
+    })
 
     const login = (username) => {
         setUsername(username);

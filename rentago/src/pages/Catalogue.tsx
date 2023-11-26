@@ -23,7 +23,6 @@ import {
   MenuDivider,
 } from '@chakra-ui/react'
 import { ChevronUpIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
-import { GoDotFill } from 'react-icons/go'
 import { useSupabase } from '../services/supabaseService'
 import { useDetails } from '../services/detailsContext'
 import { getVehicles } from '../services/catalogueService'

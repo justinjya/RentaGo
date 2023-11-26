@@ -195,7 +195,7 @@ const LandingPage: React.FC = () => {
                   </HStack>
                     {isOpen && (
                       <>
-                        <Box position="fixed" top={0} right={0} bottom={0} left={0} zIndex={0} onClick={() => setIsOpen(false)} />
+                        <Box position="fixed" top={0} right={0} bottom={0} left={0} zIndex={1} onClick={() => setIsOpen(false)} />
                         <Box position={"absolute"} top={isExpanded ? "90%" : "65%"} left="85px" zIndex={5000}>
                           <Box bg="#D9DDE9" w="596px" borderRadius={20}>
                             <DatePicker currentMonth={currentMonth} setCurrentMonth={setCurrentMonth} nextMonth={nextMonth} setNextMonth={setNextMonth} startDate={pickupDate} setStartDate={setPickupDate} endDate={dropoffDate} setEndDate={setDropoffDate}/>
