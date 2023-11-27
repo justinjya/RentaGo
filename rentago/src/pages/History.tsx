@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { format } from 'date-fns'
 import {
   Button,
-  Heading,
   Text,
   Container,
   Flex,
@@ -132,7 +132,7 @@ export default function History() {
                   <HStack mt={2}>
                     <BsFillCalendar3WeekFill size={19}/> 
                     <Text fontSize={13}>
-                      {item.pick_up_date} - {item.drop_off_date}
+                      {format(new Date(item.pick_up_date), 'dd/MM/yyyy')} - {format(new Date(item.drop_off_date), 'dd/MM/yyyy')}
                     </Text>
                   </HStack>
                 </HStack>
