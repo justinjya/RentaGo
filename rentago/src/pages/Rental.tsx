@@ -345,6 +345,9 @@ export default function RentalPage() {
 
 export function getFinalPrice(vehicle: any, pickupDate: Date, dropoffDate: Date) {
     const diffTime = Math.abs(new Date(dropoffDate).getTime() - new Date(pickupDate).getTime());
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    if (diffDays <= 0 ) {
+        diffDays = 1
+    }
     return vehicle.price * diffDays;
   }

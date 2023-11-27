@@ -10,10 +10,10 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuDivider,
   Stack,
   Link,
 } from '@chakra-ui/react'
+import { useEffect } from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from '../services/authContext'
 import { useDetails } from '../services/detailsContext'
@@ -23,7 +23,7 @@ import { signOut } from '../services/signOutService';
 export default function NavBar() { 
   const supabase = useSupabase()
   const { isLoggedIn, username, logout, showLoginPage, setShowLoginPage, showRegisterPage, setShowRegisterPage } = useAuth()
-  const { resetDetails } = useDetails()
+  const { resetDetails, rental } = useDetails()
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -74,7 +74,6 @@ export default function NavBar() {
             fontWeight={'normal'}
             color={'#F9F9FB'}
             variant='link'
-            opacity={currentLocation === '/pay' ? '0.5' : '1'}
             onClick={() => {
               handleLogoClick()
             }}
@@ -161,7 +160,6 @@ export default function NavBar() {
                   <Link _hover={{textDecoration: 'none'}} onClick={handleProfileClick}>
                     <TransparentMenuItem>Profile</TransparentMenuItem>
                   </Link>
-                  {/* <MenuDivider></MenuDivider> */}
                   <Link _hover={{textDecoration: 'none'}}>
                     {currentLocation === '/pay' ? (
                       <DisabledTransparentMenuItem onClick={handleLogoutClick}>
