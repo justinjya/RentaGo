@@ -59,7 +59,7 @@ const LandingPage: React.FC = () => {
   const [locations, setLocations] = useState<string[]>([]);
   useEffect(() => {
     if (rental) {
-      navigate("/payment");
+      navigate("/pay");
     }
 
     const fetchLocations = async () => {

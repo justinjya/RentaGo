@@ -53,12 +53,12 @@ export default function Catalog() {
 
   useEffect(() => {
     if (rental) {
-      navigate("/payment");
+      navigate("/pay");
     }
     if (!pickupDate || !dropoffDate || location === "") {
       navigate('/')
-      return;
     }
+    return;
   })
   
   const [catalogue, setCatalogue] = useState<any[]>([])
@@ -84,7 +84,7 @@ export default function Catalog() {
 
   const handleRentCar = (vehicle: any) => {
     setVehicle(vehicle);
-    navigate("/rental");
+    navigate("/rent");
   };
 
   const handleRatingChange = (newRating: number) => {

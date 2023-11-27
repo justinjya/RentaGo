@@ -30,7 +30,7 @@ export default function NavBar() {
   const currentLocation = location.pathname
   
   const handleLogoClick = () => {
-    if (currentLocation === '/payment') {
+    if (currentLocation === '/pay') {
       return
     }
     resetDetails()
@@ -43,7 +43,7 @@ export default function NavBar() {
     navigate('/history')
   }
   const handleLogoutClick = () => {
-    if (currentLocation === '/payment') {
+    if (currentLocation === '/pay') {
       return
     }
 
@@ -66,13 +66,13 @@ export default function NavBar() {
           fontWeight={'normal'}
           color={'#F9F9FB'}
           variant='link'
-          opacity={currentLocation === '/payment' ? '0.5' : '1'}
+          opacity={currentLocation === '/pay' ? '0.5' : '1'}
           onClick={() => {
             handleLogoClick()
           }}
           _hover={{
             textDecoration: 'none',
-            transform: currentLocation === '/payment' ? '' : 'scale(1.1)'}}>
+            transform: currentLocation === '/pay' ? '' : 'scale(1.1)'}}>
             RentaGo
         </Button>
         <Flex alignItems={'center'}>
@@ -133,7 +133,7 @@ export default function NavBar() {
                   </Link>
                   <MenuDivider></MenuDivider>
                   <Link _hover={{textDecoration: 'none'}}>
-                    {currentLocation === '/payment' ? (
+                    {currentLocation === '/pay' ? (
                       <DisabledTransparentMenuItem onClick={handleLogoutClick}>
                         Logout
                       </DisabledTransparentMenuItem>

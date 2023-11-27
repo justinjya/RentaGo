@@ -68,14 +68,13 @@ export default function Payment() {
     const { isOpen: isOpenBack, onOpen: onOpenBack, onClose: onCloseBack } = useDisclosure();
 
     useEffect(() => {
-        if (pickupDate && dropoffDate && vehicle === null) {
+        if (pickupDate && dropoffDate && (vehicle === null || rental === null)) {
             navigate('/catalogue');
-            return;
         }
         else if (!pickupDate || !dropoffDate || location === "" || vehicle === null) {
             navigate('/');
-            return;
         }
+        return;
     })
 
     const handleBack = () => {
@@ -85,7 +84,7 @@ export default function Payment() {
     const handlePayNow = () => {
         if ((paymentMethod === "Credit Card" && (!creditCardNumber || !expiryDate || !cvv)) ||
             (paymentMethod === "M-Banking" && !bankName)) {
-            return
+            return;
         }
         
         if (paymentMethod === "Credit Card" && (creditCardNumber.length < 14 || expiryDate.length < 5 || cvv.length < 3)) {
@@ -98,7 +97,7 @@ export default function Payment() {
             if (cvv.length < 3) {
                 setIsCVVNotValid(true);
             }
-            return
+            return;
         }
 
         onOpenPay();
@@ -405,8 +404,8 @@ export default function Payment() {
                         <Image
                         src={vehicle.image}
                         alt={vehicle.name}
-                        w="160px"
-                        h="120px"
+                        w={200}
+                        h={130}
                         objectFit="scale-down"
                         mr={5}/>
                         <VStack spacing={0} align="start">

@@ -24,7 +24,7 @@ export default function ProfilePage() {
 
     useEffect (() => {
         if (rental) {
-            navigate("/payment");
+            navigate("/pay");
         }
 
         const fetchUserDetails = async () => {
