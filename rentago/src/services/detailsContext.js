@@ -23,7 +23,7 @@ export const DetailsProvider = ({ children }) => {
         setPickupDate(null);
         setDropoffDate(null);
         setLocation("");
-        setMinPrice(200_000);
+        setMinPrice(0);
         setMaxPrice(1_500_000);
         setTransmission(null);
         setCapacity(null);

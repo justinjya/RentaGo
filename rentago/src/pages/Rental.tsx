@@ -27,6 +27,7 @@ import { WarningIcon } from '@chakra-ui/icons'
 import { GiGearStickPattern } from 'react-icons/gi'
 import { GoPersonFill } from 'react-icons/go'
 import { BsFillCarFrontFill } from 'react-icons/bs'
+import { FaMotorcycle } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { useSupabase } from "../services/supabaseService";
 import { useNavigate } from "react-router-dom";
@@ -40,7 +41,7 @@ export default function RentalPage() {
     const navigate = useNavigate();
 
     const { username, isLoggedIn, setShowLoginPage, setShowRegisterPage } = useAuth();
-    const { vehicle, setVehicle, rental, setRental, pickupDate, dropoffDate, location } = useDetails();
+    const { type, vehicle, setVehicle, rental, setRental, pickupDate, dropoffDate, location } = useDetails();
     useEffect(() => {
         if (rental) {
             navigate("/pay");
@@ -137,11 +138,11 @@ export default function RentalPage() {
                         </HStack>
                         <HStack justify="center">
                             <VStack spacing={0} align="start" w={198}>
-                                <Text fontSize="13px" color={'#F9F9FB'}>Car Name</Text>
+                                <Text fontSize="13px" color={'#F9F9FB'}>{type} Name</Text>
                                 <Text fontSize="22px" color={'#F9F9FB'}>{vehicle.name}</Text>
                             </VStack>
                             <VStack spacing={0} align="start" w={168}>
-                                <Text fontSize="13px" color={'#F9F9FB'}>Car Brand</Text>
+                                <Text fontSize="13px" color={'#F9F9FB'}>{type} Brand</Text>
                                 <Text fontSize="22px" color={'#F9F9FB'}>{vehicle.brand}</Text>
                             </VStack>
                         </HStack>
@@ -165,7 +166,15 @@ export default function RentalPage() {
                             <VStack spacing={1} align="start" w={198}>
                                 <Text fontSize="13px" color={'#F9F9FB'}>Size</Text>
                                 <HStack>
-                                    <BsFillCarFrontFill size={24} color={'#F9F9FB'}/>
+                                    { type === "Car" ? (
+                                        <>
+                                            <BsFillCarFrontFill size={24} color={'#F9F9FB'}/>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <FaMotorcycle size={24} color={'#F9F9FB'}/>
+                                        </>
+                                    )}
                                     <Text fontSize="22px" color={'#F9F9FB'} mt="1" ml="3">{vehicle.size}</Text>
                                 </HStack>             
                             </VStack>   
