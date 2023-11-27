@@ -69,6 +69,7 @@ function App() {
                   <Route path="/history" element={<History />} />
                   <Route path="/profile" element={<ProfilePage />} />
                   <Route path="/error" element={<Error />} />
+                  <Route path="*" element={<Error />} />
                 </Routes>
               </Box>
             </Box>
