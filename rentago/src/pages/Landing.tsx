@@ -45,6 +45,7 @@ import carImage from '../assets/car.svg'
 const LandingPage: React.FC = () => {
   const supabase = useSupabase();
   const { 
+    MIN_PRICE, MAX_PRICE,
     setType, 
     pickupDate, setPickupDate,
     dropoffDate, setDropoffDate,
@@ -229,7 +230,7 @@ const LandingPage: React.FC = () => {
                   <VStack alignItems="start" spacing={2}>
                     <Text>Price</Text>
                     <Flex w="100%" >
-                      <RangeSlider aria-label={['min', 'max']} defaultValue={[minPrice, maxPrice]} min={200_000} max={1_500_000} step={50_000} w="230px" onChangeEnd={(val) => {setMinPrice(val[0]); setMaxPrice(val[1])}}>
+                      <RangeSlider aria-label={['min', 'max']} defaultValue={[minPrice, maxPrice]} min={MIN_PRICE} max={MAX_PRICE} step={50_000} w="230px" onChangeEnd={(val) => {setMinPrice(val[0]); setMaxPrice(val[1])}}>
                         <RangeSliderTrack bg="#D9DDE9" h="14px" borderRadius={20}>
                         <RangeSliderFilledTrack bg="transparent">
                         <Box

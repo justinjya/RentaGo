@@ -5,12 +5,14 @@ const DetailsContext = createContext();
 export const DetailsProvider = ({ children }) => {
     const storedDetails = JSON.parse(localStorage.getItem('details') || '{}');
 
+    const MIN_PRICE = 0;
+    const MAX_PRICE = 1_500_000;
     const [type, setType] = useState(storedDetails.type || "Car"); 
     const [pickupDate, setPickupDate] = useState(storedDetails.pickupDate || null);
     const [dropoffDate, setDropoffDate] = useState(storedDetails.dropoffDate || null);
     const [location, setLocation] = useState(storedDetails.location || null);
-    const [minPrice, setMinPrice] = useState(storedDetails.minPrice || 200_000);
-    const [maxPrice, setMaxPrice] = useState(storedDetails.maxPrice || 1_500_000);
+    const [minPrice, setMinPrice] = useState(storedDetails.minPrice || MIN_PRICE);
+    const [maxPrice, setMaxPrice] = useState(storedDetails.maxPrice || MAX_PRICE);
     const [transmission, setTransmission] = useState(storedDetails.transmission || null);
     const [capacity, setCapacity] = useState(storedDetails.capacity || null);
     const [size, setSize] = useState(storedDetails.size || null);
@@ -55,6 +57,7 @@ export const DetailsProvider = ({ children }) => {
     return (
         <DetailsContext.Provider 
             value={{
+                MIN_PRICE, MAX_PRICE,
                 type, setType,
                 pickupDate, setPickupDate,
                 dropoffDate, setDropoffDate,

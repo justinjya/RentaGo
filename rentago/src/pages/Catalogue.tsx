@@ -39,6 +39,7 @@ export default function Catalog() {
   const navigate = useNavigate();
 
   const {
+    MIN_PRICE, MAX_PRICE,
     type,
     pickupDate, dropoffDate, 
     location,
@@ -115,7 +116,7 @@ export default function Catalog() {
                 <Text w="100%" textAlign="center" fontSize="16px">Filters</Text>~
                 <Text fontSize="14px">Price</Text>
                 <Flex w="100%" justifyContent={"center"}>
-                  <RangeSlider aria-label={['min', 'max']} defaultValue={[minPrice, maxPrice]} min={minPrice} max={maxPrice} step={50_000} w="230px" onChangeEnd={(val) => {setMinPrice(val[0]); setMaxPrice(val[1])} }>
+                  <RangeSlider aria-label={['min', 'max']} defaultValue={[minPrice, maxPrice]} min={MIN_PRICE} max={MAX_PRICE} step={50_000} w="230px" onChangeEnd={(val) => {setMinPrice(val[0]); setMaxPrice(val[1])} }>
                     <RangeSliderTrack bg="#D9DDE9" h="14px" borderRadius={20}>
                     <RangeSliderFilledTrack bg="transparent">
                     <Box
@@ -163,20 +164,28 @@ export default function Catalog() {
                 </Menu>
                 <Text>Capacity</Text>
                 <Menu placement="bottom-start" offset={[0, -20]}>
-                  {({ isOpen }) => (
-                    <>
-                      <MenuButton as={Button} w="250px" h="45px" bg="#D9DDE9" fontWeight="normal" textAlign="start" borderRadius="20px" rightIcon={isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />} zIndex={6} _expanded={{ bg: "#D9DDE9"}}>
-                        {capacity}
-                      </MenuButton>
-                      <MenuList position="fixed" bg="#D9DDE9" w="250px"  borderRadius="0 0 20px 20px" zIndex={5}>
-                        <Box>
-                          <Spacer h="3px" />
-                        </Box>
-                        <MenuDivider/>
-                        {predefinedFilterValues['capacity'].map((value, index, array) => renderMenuItem(value, index, array, setCapacity))}
-                      </MenuList>
-                    </>
-                  )}
+                  {type === "Car" ? (
+                    <Menu placement="bottom-start" offset={[0, -20]}>
+                      {({ isOpen }) => (
+                        <>
+                          <MenuButton as={Button} w="250px" h="45px" bg="#D9DDE9" fontWeight="normal" textAlign="start" borderRadius="20px" rightIcon={isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />} zIndex={6} _expanded={{ bg: "#D9DDE9"}}>
+                            {capacity}
+                          </MenuButton>
+                          <MenuList position="fixed" bg="#D9DDE9" w="250px"  borderRadius="0 0 20px 20px" zIndex={5}>
+                            <Box>
+                              <Spacer h="3px" />
+                            </Box>
+                            <MenuDivider/>
+                            {predefinedFilterValues['capacity'].map((value, index, array) => renderMenuItem(value, index, array, setCapacity))}
+                          </MenuList>
+                        </>
+                      )}
+                    </Menu>
+                    ) : (
+                      <Button w="250px" h="45px" bg="#D9DDE9" fontWeight="normal" textAlign="start" justifyContent="start" borderRadius="20px" _hover={{}} isDisabled>
+                        2
+                      </Button>
+                    )}
                 </Menu>
                 <Text>Size</Text>
                 <Menu placement="bottom-start" offset={[0, -20]} >
