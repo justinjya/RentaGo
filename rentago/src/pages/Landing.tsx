@@ -245,13 +245,13 @@ const LandingPage: React.FC = () => {
                       <VStack alignItems={"start"} spacing={2}>
                         <Text>Min</Text>
                         <Box bg="#D9DDE9" w="120px" h="45px" borderRadius="15" display="flex" alignItems="center" justifyContent="center">
-                          {minPrice.toLocaleString('id-ID')}
+                          Rp {minPrice.toLocaleString('id-ID')}
                         </Box>
                       </VStack>
                       <VStack alignItems={"start"} spacing={2}>
                         <Text>Max</Text>
                         <Box bg="#D9DDE9" w="120px" h="45px" borderRadius="15" display="flex" alignItems="center" justifyContent="center">
-                          {maxPrice.toLocaleString('id-ID')}
+                          Rp {maxPrice.toLocaleString('id-ID')}
                         </Box>
                       </VStack>
                     </HStack>
