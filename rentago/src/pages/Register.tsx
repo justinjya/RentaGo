@@ -44,14 +44,13 @@ export default function RegisterPage() {
   }
 
   const handleSubmit = async () => {
-    if (email === '' || username === '' || password === '') {
-      if (email === '' || username === '' ) {
-        setIsRegisterFailed(true)
-      }
+    if (email === '' || username === '' || password === '' || password.length < 6) {
+      setIsRegisterFailed(true)
+
       if (password.length < 6) {
         setIsPasswordNotValid(true)
-        return
       }
+      return
     }
 
     const isRegisterSuccess = await signUp(supabase, email, username, password)
