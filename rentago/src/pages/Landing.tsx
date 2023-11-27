@@ -1,7 +1,8 @@
 'use client'
 import React from 'react';
 import { FaLocationDot } from "react-icons/fa6";
-import { ChevronDownIcon, ChevronUpIcon, CalendarIcon} from '@chakra-ui/icons'
+import { ChevronDownIcon, ChevronUpIcon} from '@chakra-ui/icons'
+import { BsFillCalendar3WeekFill } from 'react-icons/bs' 
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { addMonths, format } from 'date-fns';
@@ -95,7 +96,7 @@ const LandingPage: React.FC = () => {
 
   const navigate = useNavigate();
   const handleSubmit = () => {
-    if (pickupDate === null || dropoffDate === null || location === null || tabIndex === 1) {
+    if (pickupDate === null || dropoffDate === null || location === null) {
       return;
     }
 
@@ -150,7 +151,7 @@ const LandingPage: React.FC = () => {
                         color={pickupDate ? "black" : "rgba(0, 0, 0, 0.25)"}
                         justifyContent="start"
                         iconSpacing={5}
-                        leftIcon={<CalendarIcon color="black" />}
+                        leftIcon={<BsFillCalendar3WeekFill color="black" />}
                         onClick={() => setIsOpen(!isOpen)}
                         >
                         {pickupDate ? format(new Date(pickupDate), 'dd/MM/yyyy') : 'Required'}
@@ -167,7 +168,7 @@ const LandingPage: React.FC = () => {
                         color={dropoffDate ? "black" : "rgba(0, 0, 0, 0.25)"}
                         justifyContent="start"
                         iconSpacing={5}
-                        leftIcon={<CalendarIcon color="black" />}
+                        leftIcon={<BsFillCalendar3WeekFill color="black" />}
                         onClick={() => setIsOpen(!isOpen)}
                         >
                         {dropoffDate ? format(new Date(dropoffDate), 'dd/MM/yyyy') : 'Required'}
@@ -205,7 +206,7 @@ const LandingPage: React.FC = () => {
                     )}
                   <Spacer />
                   {!isExpanded && (
-                    <Button w="270px" h="45px" bg="#E84C83" borderRadius={20} textColor="#FFFFFF" mb={30} opacity={pickupDate === null || dropoffDate === null || location === null || tabIndex === 1 ? 0.6 : 1} onClick={handleSubmit} _hover={{}} _active={{}}>
+                    <Button w="270px" h="45px" bg="#E84C83" borderRadius={20} textColor="#FFFFFF" mb={30} opacity={pickupDate === null || dropoffDate === null || location === null ? 0.6 : 1} onClick={handleSubmit} _hover={{}} _active={{}}>
                       Submit
                     </Button>
                   )}
@@ -303,7 +304,7 @@ const LandingPage: React.FC = () => {
                     </VStack>
                     <VStack alignItems="start" marginTop={1}>
                       {isExpanded && (
-                        <Button w="270px" h="45px" bg="#E84C83" marginBottom={30} borderRadius={20} textColor="#FFFFFF" mt={30} opacity={pickupDate === null || dropoffDate === null || location === null || tabIndex === 1 ? 0.6 : 1} onClick={handleSubmit} _hover={{}} _active={{}}>
+                        <Button w="270px" h="45px" bg="#E84C83" marginBottom={30} borderRadius={20} textColor="#FFFFFF" mt={30} opacity={pickupDate === null || dropoffDate === null || location === null ? 0.6 : 1} onClick={handleSubmit} _hover={{}} _active={{}}>
                           Submit
                         </Button>
                       )}

@@ -29,6 +29,7 @@ import { getVehicles } from '../services/catalogueService'
 import { GoPersonFill } from 'react-icons/go'
 import { GiGearStickPattern } from 'react-icons/gi'
 import { BsCarFrontFill } from 'react-icons/bs'
+import { FaMotorcycle } from "react-icons/fa6";
 import { MdOutlineStar } from "react-icons/md";
 import { StarRating } from '../components/StarRating'
 import { renderMenuItem } from './Landing'
@@ -106,7 +107,7 @@ export default function Catalog() {
       direction={'column'}>
         <HStack mt="25px" ml="60px" align="start">
           <Box w="300px" h="115vh" >
-            <Text fontSize={33} color="#F9F9FB">Car Rentals</Text>
+            <Text fontSize={33} color="#F9F9FB">{type} Rentals</Text>
             <Text fontSize={17} color="#F9F9FB">for {format(new Date(pickupDate), 'dd/MM/yyyy')} - {format(new Date(dropoffDate), 'dd/MM/yyyy')}</Text>
             <Text fontSize={17} color="#F9F9FB">in {location}</Text>
             <Box mt="20px" bg="#F9F9FB" w="100%" h="530px" borderRadius="20px">
@@ -114,7 +115,7 @@ export default function Catalog() {
                 <Text w="100%" textAlign="center" fontSize="16px">Filters</Text>~
                 <Text fontSize="14px">Price</Text>
                 <Flex w="100%" justifyContent={"center"}>
-                  <RangeSlider aria-label={['min', 'max']} defaultValue={[minPrice, maxPrice]} min={200_000} max={1_500_000} step={50_000} w="230px" onChangeEnd={(val) => {setMinPrice(val[0]); setMaxPrice(val[1])} }>
+                  <RangeSlider aria-label={['min', 'max']} defaultValue={[minPrice, maxPrice]} min={minPrice} max={maxPrice} step={50_000} w="230px" onChangeEnd={(val) => {setMinPrice(val[0]); setMaxPrice(val[1])} }>
                     <RangeSliderTrack bg="#D9DDE9" h="14px" borderRadius={20}>
                     <RangeSliderFilledTrack bg="transparent">
                     <Box
@@ -254,10 +255,21 @@ export default function Catalog() {
                             {getTransmission(vehicle)}
                         </Text>
                         <Spacer />
-                        <BsCarFrontFill size={25}/>
-                        <Text fontSize={13}>
-                            {vehicle.size}
-                        </Text>
+                        { type === 'Car' ? (
+                          <>
+                            <BsCarFrontFill size={25}/>
+                            <Text fontSize={13}>
+                                {vehicle.size}
+                            </Text>
+                          </>
+                        ) : (
+                          <>
+                            <FaMotorcycle size={25}/>
+                            <Text fontSize={13}>
+                                {vehicle.size}
+                            </Text>
+                          </>
+                        )}
                         <Spacer />
                         <MdOutlineStar size={25}/>
                         <Text fontSize={13}>
