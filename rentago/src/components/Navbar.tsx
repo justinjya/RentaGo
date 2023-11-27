@@ -36,6 +36,13 @@ export default function NavBar() {
     resetDetails()
     navigate('/')
   }
+  const handleHomeClick = () => {
+    if (currentLocation === '/pay') {
+      return
+    }
+    resetDetails()
+    navigate('/')
+  }
   const handleProfileClick = () => {
     navigate('/profile')
   }
@@ -61,20 +68,46 @@ export default function NavBar() {
       }}
       px={66}>
       <Flex h="64px" alignItems={'center'} justifyContent={'space-between'}>
-        <Button 
-          fontSize='2xl'
-          fontWeight={'normal'}
-          color={'#F9F9FB'}
-          variant='link'
-          opacity={currentLocation === '/pay' ? '0.5' : '1'}
-          onClick={() => {
-            handleLogoClick()
-          }}
-          _hover={{
-            textDecoration: 'none',
-            transform: currentLocation === '/pay' ? '' : 'scale(1.1)'}}>
-            RentaGo
-        </Button>
+        <Flex alignItems={'center'}>
+          <Button 
+            fontSize='2xl'
+            fontWeight={'normal'}
+            color={'#F9F9FB'}
+            variant='link'
+            opacity={currentLocation === '/pay' ? '0.5' : '1'}
+            onClick={() => {
+              handleLogoClick()
+            }}
+            _hover={{
+              textDecoration: 'none',
+              transform: currentLocation === '/pay' ? '' : 'scale(1.1)'}}>
+              RentaGo
+          </Button>
+          {isLoggedIn && (
+            <Stack direction={'row'} spacing={5}>
+              <Button
+                fontSize={'md'} 
+                fontWeight={400} 
+                color={'#F9F9FB'}
+                variant={'link'} 
+                ml={"36px"}
+                onClick={() => {handleHomeClick()}}
+                _hover={{transform: 'scale(1.1)'}}>
+                  Home
+              </Button>
+              <Button
+                fontSize={'md'} 
+                fontWeight={400} 
+                color={'#F9F9FB'}
+                variant={'link'} 
+                onClick={() => {handleHistoryClick()}}
+                mr={9}
+                _hover={{transform: 'scale(1.1)'}}>
+                  History
+              </Button>
+            </Stack>
+          )}
+        </Flex>
         <Flex alignItems={'center'}>
           {!isLoggedIn && (
             <Stack direction={'row'} spacing={5}>
@@ -128,18 +161,19 @@ export default function NavBar() {
                   <Link _hover={{textDecoration: 'none'}} onClick={handleProfileClick}>
                     <TransparentMenuItem>Profile</TransparentMenuItem>
                   </Link>
-                  <Link _hover={{textDecoration: 'none'}} onClick={handleHistoryClick}>
-                    <TransparentMenuItem>History</TransparentMenuItem>
-                  </Link>
-                  <MenuDivider></MenuDivider>
+                  {/* <MenuDivider></MenuDivider> */}
                   <Link _hover={{textDecoration: 'none'}}>
                     {currentLocation === '/pay' ? (
                       <DisabledTransparentMenuItem onClick={handleLogoutClick}>
-                        Logout
+                        <Text color="red.500">
+                          Logout
+                        </Text>
                       </DisabledTransparentMenuItem>
                     ) : (
                       <TransparentMenuItem onClick={handleLogoutClick}>
-                        Logout
+                        <Text color="red.500">
+                          Logout
+                        </Text>
                       </TransparentMenuItem>
                     )}
                   </Link>

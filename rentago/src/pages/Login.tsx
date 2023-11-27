@@ -94,19 +94,19 @@ export default function LoginPage() {
                 <Text fontSize={'5xl'} color="black" mb={3}>Login</Text>
                 <FormControl id="username" mb={0}>
                   <FormLabel color="black">Username</FormLabel>
-                  <Input bg="#D9DDE9" border={0} boxShadow={isLoginFailed ? "0 0 0 1px red" : "0 0 0 0"} _hover={{ bg: "#E2E8F0" }} sx={isLoginFailed ? { ":focus": { boxShadow: "0 0 0 1.5px red" } } : {}} color="black" type="username" borderRadius="15px" value={username} onChange={(e) => setUsername(e.target.value)} />
+                  <Input bg="#D9DDE9" border={0} boxShadow={isLoginFailed ? "0 0 0 1px red" : "0 0 0 0"} _hover={{ bg: "#E2E8F0" }} sx={isLoginFailed ? { ":focus": { boxShadow: "0 0 0 1.5px red.500" } } : {}} color="black" type="username" borderRadius="15px" value={username} onChange={(e) => setUsername(e.target.value)} />
                 </FormControl>
                 {isLoginFailed && 
                   <Flex direction="row" w="300px" align="center" mt={-2}>
-                    <WarningIcon color="red" w={4} h={4} />
-                    <Text color="red" fontSize="sm" mt={0.5} mb={0} ml={3} mr={3} textAlign="center">
+                    <WarningIcon color="red.500" w={4} h={4} />
+                    <Text color="red.500" fontSize="sm" mt={0.5} mb={0} ml={3} mr={3} textAlign="center">
                       Username or password is incorrect
                     </Text>
                   </Flex>
                 }
                 <FormControl id="password">
                   <FormLabel color="black">Password</FormLabel>
-                  <Input bg="#D9DDE9" border={0} boxShadow={isLoginFailed ? "0 0 0 1px red" : "0 0 0 0"} _hover={{ bg: "#E2E8F0" }} sx={isLoginFailed ? { ":focus": { boxShadow: "0 0 0 1.5px red" } } : {}} color="black" type="password" borderRadius="15px" value={password} onChange={(e) => setPassword(e.target.value)} />
+                  <Input bg="#D9DDE9" border={0} boxShadow={isLoginFailed ? "0 0 0 1px red" : "0 0 0 0"} _hover={{ bg: "#E2E8F0" }} sx={isLoginFailed ? { ":focus": { boxShadow: "0 0 0 1.5px red.500" } } : {}} color="black" type="password" borderRadius="15px" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </FormControl>
                 <Link ml={3} color="black" mt={2} mb={0} fontSize="sm" onClick={openForgotPasswordModal} cursor="pointer">
                   Forgot password?

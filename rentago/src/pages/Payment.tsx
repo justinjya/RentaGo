@@ -122,13 +122,13 @@ export default function Payment() {
             <HStack spacing="190px">
                 <HStack spacing="16px">
                     <Center boxSize="30px" borderRadius="50%" border="1px solid rgba(249, 249, 251, 0.7)">
-                        <Text fontSize="md" color="rgba(249, 249, 251, 0.7)">1</Text>
+                        <Text fontSize="md" color="rgba(249, 249, 251, 0.7)" ml="-2px" mt="2px">1</Text>
                     </Center>
                     <Text fontSize="18px" color="rgba(249, 249, 251, 0.7)">Rental Details</Text>
                 </HStack>
                 <HStack spacing="16px">
                     <Center boxSize="30px" bg="#D9D9D9" borderRadius="50%">
-                        <Text fontSize="md">2</Text>
+                        <Text fontSize="md" mt="2px">2</Text>
                     </Center>
                     <Text fontSize="18px" color={'#F9F9FB'}>Payment Details</Text>
                 </HStack>
@@ -164,27 +164,27 @@ export default function Payment() {
                 <Stack
                     w="550px" 
                     h="525px"
-                    bg={'transparent'}
+                    bg={'#F9F9FB'}
                     mt="0px"
                     rounded={20}
+                    p={8}
                     pt={8}
                     spacing={{ base: 8 }}>
                     <Stack spacing={4}>
                         <Text
-                        color={'#F9F9FB'}
                         lineHeight={1.1}
                         fontSize={32}
-                        fontWeight={400}
+                        fontWeight={"normal"}
                         textAlign="start">
                         Payment Method
                         </Text>
-                        <Box position="relative" borderBottom="2px solid #F9F9FB"> 
+                        <Box position="relative" borderBottom="2px solid #D9DDE9"> 
                             <ButtonGroup>
                                 <Button 
                                     onClick={() => setPaymentMethod("Credit Card")} 
                                     rounded={0}
                                     bg={"transparent"}
-                                    color={'#F9F9FB'}
+                                    fontWeight={"normal"}
                                     _hover={{bg: 'transparent'}}
                                     _after={{
                                         content: '""',
@@ -202,7 +202,7 @@ export default function Payment() {
                                     onClick={() => setPaymentMethod("M-Banking")} 
                                     rounded={0}
                                     bg={"transparent"}
-                                    color={'#F9F9FB'}
+                                    fontWeight={"normal"}
                                     _hover={{bg:"transparent"}}
                                     _after={{
                                         content: '""',
@@ -220,7 +220,7 @@ export default function Payment() {
                                     onClick={() => setPaymentMethod("QRIS")}
                                     rounded={0}
                                     bg={"transparent"}
-                                    color={'#F9F9FB'}
+                                    fontWeight={"normal"}
                                     _hover={{bg:"transparent"}}
                                     _after={{
                                         content: '""',
@@ -239,7 +239,7 @@ export default function Payment() {
                         <PressEnterAble handleSubmit={handlePayNow}>
                             {paymentMethod === "Credit Card" && (
                             <Stack mt={4}>
-                                <FormLabel fontSize={15} color={'#F9F9FB'}>Credit Card Number</FormLabel>
+                                <FormLabel fontSize={15} mb={0} >Credit Card Number</FormLabel>
                                 <Input
                                 value={creditCardNumber} onChange={e => {
                                     const val = e.target.value;
@@ -248,33 +248,33 @@ export default function Payment() {
                                         setCreditCardNumber(e.target.value);
                                     }
                                 }}
-                                bg={'#F9F9FB'}
+                                bg={"#D9DDE9"}
                                 border={0}
                                 mb={4}
                                 h="50px"
                                 w="65%"
                                 borderRadius={20}
-                                boxShadow={isCreditCardNumberNotValid ? "0 0 0 1px red" : "0 0 0 0"} 
-                                sx={isCreditCardNumberNotValid ? { ":focus": { boxShadow: "0 0 0 1.5px red" } } : {}}
+                                boxShadow={isCreditCardNumberNotValid ? "0 0 0 1px red.500" : "0 0 0 0"} 
+                                sx={isCreditCardNumberNotValid ? { ":focus": { boxShadow: "0 0 0 1.5px red.500" } } : {}}
                                 _hover={{
                                     bg: "#E2E8F0" }}
                                 />
                                 {isCreditCardNumberNotValid && 
                                 <Flex direction="row" w="370px" align="center" mt="-11px">
-                                    <WarningIcon color="red" w={4} h={4} />
-                                    <Text color="red" fontSize="sm" mt={0} mb={0} ml={3} mr={3} textAlign="center">
+                                    <WarningIcon color="red.500" w={4} h={4} />
+                                    <Text color="red.500" fontSize="sm" mt={0} mb={0} ml={3} mr={3} textAlign="center">
                                     Credit card number must contain at least 14 digits
                                     </Text>
                                 </Flex>
                                 }
-                                <FormLabel fontSize={15} color={'#F9F9FB'}>Name</FormLabel>
+                                <FormLabel fontSize={15} mb={0} >Name</FormLabel>
                                     <Input
                                     value={name} onChange={e => {
                                         const val = e.target.value;
                                         if (val.length > 30) return;
                                         setName(e.target.value)
                                     }}
-                                    bg={'#F9F9FB'}
+                                    bg={'#D9DDE9'}
                                     border={0}
                                     mb={4}
                                     h="50px"
@@ -285,7 +285,7 @@ export default function Payment() {
                                 />
                                 <Flex gap={-8}>
                                     <Stack mr={-10}>
-                                        <FormLabel fontSize={15} color={'#F9F9FB'}>Expiration Date</FormLabel>
+                                        <FormLabel fontSize={15} mb={0} >Expiration Date</FormLabel>
                                         <Input
                                         value={expiryDate} onChange={e => {
                                             let val = e.target.value;
@@ -297,28 +297,28 @@ export default function Payment() {
                                                 setExpiryDate(val);
                                             }
                                         }}
-                                        bg={'#F9F9FB'}
+                                        bg={'#D9DDE9'}
                                         border={0}
                                         mb={4}
                                         h="50px"
                                         w="70%"
                                         borderRadius={20}
-                                        boxShadow={isExpiryDateNotValid ? "0 0 0 1px red" : "0 0 0 0"} 
-                                        sx={isExpiryDateNotValid ? { ":focus": { boxShadow: "0 0 0 1.5px red" } } : {}}
+                                        boxShadow={isExpiryDateNotValid ? "0 0 0 1px red.500" : "0 0 0 0"} 
+                                        sx={isExpiryDateNotValid ? { ":focus": { boxShadow: "0 0 0 1.5px red.500" } } : {}}
                                         _hover={{
                                         bg: "#E2E8F0" }}
                                         />
                                         {isExpiryDateNotValid && 
                                         <Flex direction="row" w="170px" align="start" mt="-11px">
-                                            <WarningIcon color="red" w={4} h={4} />
-                                            <Text color="red" fontSize="sm" mt={0} mb={0} ml={3} mr={3} textAlign="start">                                  
+                                            <WarningIcon color="red.500" w={4} h={4} />
+                                            <Text color="red.500" fontSize="sm" mt={0} mb={0} ml={3} mr={3} textAlign="start">                                  
                                                 Use MM/YY format
                                             </Text>
                                         </Flex>
                                         }
                                     </Stack>
                                     <Stack ml="20px">
-                                        <FormLabel fontSize={15} color={'#F9F9FB'}>CVV</FormLabel>
+                                        <FormLabel fontSize={15} mb={0} >CVV</FormLabel>
                                         <Input
                                         value={cvv} onChange={e => {
                                             const val = e.target.value;
@@ -327,21 +327,21 @@ export default function Payment() {
                                                 setCvv(e.target.value);
                                             }
                                         }}
-                                        bg={'#F9F9FB'}
+                                        bg={'#D9DDE9'}
                                         border={0}
                                         mb={4}
                                         h="50px"
                                         w="93%"
                                         borderRadius={20}
-                                        boxShadow={isCVVNotValid ? "0 0 0 1px red" : "0 0 0 0"} 
-                                        sx={isCVVNotValid ? { ":focus": { boxShadow: "0 0 0 1.5px red" } } : {}}
+                                        boxShadow={isCVVNotValid ? "0 0 0 1px red.599" : "0 0 0 0"} 
+                                        sx={isCVVNotValid ? { ":focus": { boxShadow: "0 0 0 1.5px red.500" } } : {}}
                                         _hover={{
                                             bg: "#E2E8F0" }}
                                         />
                                         {isCVVNotValid && 
                                         <Flex direction="row" w="300px" align="center" mt="-11px">
-                                            <WarningIcon color="red" w={4} h={4} />
-                                            <Text color="red" fontSize="sm" mt={0} mb={0} ml={3} mr={3} textAlign="center">
+                                            <WarningIcon color="red.500" w={4} h={4} />
+                                            <Text color="red.500" fontSize="sm" mt={0} mb={0} ml={3} mr={3} textAlign="center">
                                             CVV must contain at least 3 digits
                                             </Text>
                                         </Flex>
@@ -352,14 +352,14 @@ export default function Payment() {
                             )}
                             {paymentMethod === "M-Banking" && (
                             <Stack mt={4}>
-                                <FormLabel fontSize={15} color={'#F9F9FB'}>Bank Name</FormLabel>
+                                <FormLabel fontSize={15} mb={0} >Bank Name</FormLabel>
                                 <Menu placement="bottom-start" offset={[0, -20]}>
                                     {({ isOpen }) => (
                                     <>
-                                        <MenuButton as={Button} w="270px" h="50px" bg={'#F9F9FB'} fontWeight="normal" textAlign="start" borderRadius="20px" rightIcon={isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />} zIndex={3} _hover={{ bg: "#E2E8F0" }} _expanded={{ bg: "#F9F9FB"}}>
+                                        <MenuButton as={Button} w="270px" h="50px" bg={'#D9DDE9'} fontWeight="normal" textAlign="start" borderRadius="20px" rightIcon={isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />} zIndex={3} _hover={{ bg: "#E2E8F0" }} _expanded={{ bg: "#D9DDE9"}}>
                                         {bankName}
                                         </MenuButton>
-                                        <MenuList position="fixed" bg={'#F9F9FB'} w="270px"  borderRadius="0 0 20px 20px" zIndex={2}>
+                                        <MenuList position="fixed" bg={'#D9DDE9'} w="270px"  borderRadius="0 0 20px 20px" zIndex={2}>
                                         <Box>
                                             <Spacer h="3px" />
                                         </Box>
@@ -371,8 +371,8 @@ export default function Payment() {
                                 </Menu>
                                 {bankName !== "" &&
                                   <VStack align="start" mt={5}>
-                                      <Text color={'#F9F9FB'} fontWeight={'normal'}>Virtual Account</Text>
-                                      <Text color={'#F9F9FB'}>{getVirtualAccount(banks, bankName)}</Text>
+                                      <Text fontWeight={'normal'}>Virtual Account</Text>
+                                      <Text fontSize="20px" mt={-1}>{getVirtualAccount(banks, bankName)}</Text>
                                   </VStack>
                                 }
                             </Stack>
@@ -486,6 +486,7 @@ const renderBanksMenuItem = (bank: { name: string, logo: string }, index: number
                   setBankName(bank.name);
                 }}
                 borderRadius="0 0 10px 10px"
+                bg="#D9DDE9"
                 _hover={{ bg: "#E2E8F0" }}
             >
                 <Flex gap={3}>
@@ -502,6 +503,7 @@ const renderBanksMenuItem = (bank: { name: string, logo: string }, index: number
             onClick={() => {
               setBankName(bank.name);
             }}
+            bg="#D9DDE9"
             _hover={{ bg: "#E2E8F0" }}
         >
             <Flex gap={3}>

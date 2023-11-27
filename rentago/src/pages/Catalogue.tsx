@@ -131,13 +131,13 @@ export default function Catalog() {
                   <VStack alignItems={"start"} spacing={2}>
                     <Text fontSize="14px">Min</Text>
                     <Box bg="#D9DDE9" w="120px" h="40px" borderRadius="15" display="flex" alignItems="center" justifyContent="center">
-                      {minPrice.toLocaleString('id-ID')}
+                      Rp{minPrice.toLocaleString('id-ID')}
                     </Box>
                   </VStack>
                   <VStack alignItems={"start"} spacing={2}>
                     <Text fontSize="14px">Max</Text>
                     <Box bg="#D9DDE9" w="120px" h="40px" borderRadius="15" display="flex" alignItems="center" justifyContent="center">
-                      {maxPrice.toLocaleString('id-ID')}
+                      Rp{maxPrice.toLocaleString('id-ID')}
                     </Box>
                   </VStack>
                 </HStack>
@@ -232,9 +232,14 @@ export default function Catalog() {
                           </Text>
                       </VStack>
                       <HStack align={'start'} justify={'space-between'}>
-                          <Text fontSize={28}>
-                              Rp {vehicle.price.toLocaleString('id-ID')}
-                          </Text>
+                          <Flex w="100%" align="end">
+                            <Text fontSize={28}>
+                                Rp{vehicle.price.toLocaleString('id-ID')}
+                            </Text>
+                            <Text fontSize={14}>
+                                /day
+                            </Text>
+                          </Flex>
                       </HStack>
                     </Box>
                     <Box w='100%'>
@@ -326,9 +331,9 @@ export default function Catalog() {
 
 export function getTransmission(vehicle: any) {
   if (vehicle.transmission === 'Automatic') {
-    return 'A';
+    return 'A/T';
   }
   else if (vehicle.transmission === 'Manual') {
-    return 'M';
+    return 'M/T';
   }
 }

@@ -81,28 +81,28 @@ export default function RegisterPage() {
               <Text fontSize={'5xl'} color="black" mb="12px">Register</Text>
               <FormControl id="email" >
                 <FormLabel color="black">Email</FormLabel>
-                <Input bg="#D9DDE9" border={0} boxShadow={isRegisterFailed ? "0 0 0 1px red" : "0 0 0 0"} _hover={{ bg: "#E2E8F0" }} sx={isRegisterFailed ? { ":focus": { boxShadow: "0 0 0 1.5px red" } } : {}} color="black" type="email" borderRadius="15px" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Input bg="#D9DDE9" border={0} boxShadow={isRegisterFailed ? "0 0 0 1px red" : "0 0 0 0"} _hover={{ bg: "#E2E8F0" }} sx={isRegisterFailed ? { ":focus": { boxShadow: "0 0 0 1.5px red.500" } } : {}} color="black" type="email" borderRadius="15px" value={email} onChange={(e) => setEmail(e.target.value)} />
               </FormControl>
               {isRegisterFailed &&
                 <Flex direction="row" w="300px" align="center">
-                  <WarningIcon color="red" w={4} h={4} />
-                  <Text color="red" fontSize="sm" mt={0.5} mb={0} ml={3} mr={3} textAlign="center">
+                  <WarningIcon color="red.500" w={4} h={4} />
+                  <Text color="red.500" fontSize="sm" mt={0.5} mb={0} ml={3} mr={3} textAlign="center">
                     Invalid or taken email or username
                   </Text>
                 </Flex>
               }
               <FormControl id="username" mt={isRegisterFailed ? 0 : 2}>
                 <FormLabel color="black">Username</FormLabel>
-                <Input bg="#D9DDE9" border={0} boxShadow={isRegisterFailed ? "0 0 0 1px red" : "0 0 0 0"} _hover={{ bg: "#E2E8F0" }} sx={isRegisterFailed ? { ":focus": { boxShadow: "0 0 0 1.5px red" } } : {}} color="black" type="username" borderRadius="15px" value={username} onChange={(e) => setUsername(e.target.value)} />
+                <Input bg="#D9DDE9" border={0} boxShadow={isRegisterFailed ? "0 0 0 1px red" : "0 0 0 0"} _hover={{ bg: "#E2E8F0" }} sx={isRegisterFailed ? { ":focus": { boxShadow: "0 0 0 1.5px red.500" } } : {}} color="black" type="username" borderRadius="15px" value={username} onChange={(e) => setUsername(e.target.value)} />
               </FormControl>
               <FormControl id="password" mt={2}>
                 <FormLabel color="black">Password</FormLabel>
-                <Input bg="#D9DDE9" border={0} boxShadow={isRegisterFailed ? "0 0 0 1px red" : "0 0 0 0"} _hover={{ bg: "#E2E8F0" }} sx={isRegisterFailed ? { ":focus": { boxShadow: "0 0 0 1.5px red" } } : {}} color="black" type="password" borderRadius="15px" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <Input bg="#D9DDE9" border={0} boxShadow={isRegisterFailed ? "0 0 0 1px red" : "0 0 0 0"} _hover={{ bg: "#E2E8F0" }} sx={isRegisterFailed ? { ":focus": { boxShadow: "0 0 0 1.5px red.500" } } : {}} color="black" type="password" borderRadius="15px" value={password} onChange={(e) => setPassword(e.target.value)} />
               </FormControl>
               {isPasswordNotValid &&
                 <Flex direction="row" w="300px" align="center">
-                  <WarningIcon color="red" w={4} h={4} />
-                  <Text color="red" fontSize="sm" mt={0.5} mb={0} ml={3} mr={3} textAlign="center">
+                  <WarningIcon color="red.500" w={4} h={4} />
+                  <Text color="red.500" fontSize="sm" mt={0.5} mb={0} ml={3} mr={3} textAlign="center">
                     Password must be at least 6 characters
                   </Text>
                 </Flex>

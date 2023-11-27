@@ -69,16 +69,15 @@ export default function History() {
       align={'center'}
       justify={'start'}
       direction={'column'}>
-      <Heading
-        as={'h1'}
-        fontSize={{ base: '2xl', sm: '3xl' }}
+      <Text
+        fontSize={'33px'}
         textAlign={'center'}
         mr={900}
         mb={5}
         mt={5}
         color="#F9F9FB">
           History
-      </Heading>
+      </Text>
       {userHistory && userHistory
       .slice((page - 1) * pageSize, page * pageSize)
       .map((item, index) => (

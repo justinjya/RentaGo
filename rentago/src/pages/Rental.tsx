@@ -98,13 +98,13 @@ export default function RentalPage() {
                 <HStack spacing="205px">
                     <HStack spacing="16px">
                         <Center boxSize="30px" bg="#D9D9D9" borderRadius="50%">
-                            <Text fontSize="md">1</Text>
+                            <Text fontSize="md" mt="2px">1</Text>
                         </Center>
                         <Text fontSize="18px" color={'#F9F9FB'}>Rental Details</Text>
                     </HStack>
                     <HStack spacing="16px">
                         <Center boxSize="30px" borderRadius="50%" border="1px solid rgba(249, 249, 251, 0.7)">
-                            <Text fontSize="md" color="rgba(249, 249, 251, 0.7)">2</Text>
+                            <Text fontSize="md" color="rgba(249, 249, 251, 0.7)" ml="-2px" mt="2px">2</Text>
                         </Center>
                         <Text fontSize="18px" color="rgba(249, 249, 251, 0.7)">Payment Details</Text>
                     </HStack>
@@ -118,45 +118,46 @@ export default function RentalPage() {
                         h="525px"
                         mt="0px"
                         p={8}
+                        pt={6}
                         spacing={3}>
                         <HStack>
                             <Image
                             src={vehicle.image}
                             alt={vehicle.name}
-                            w={200}
+                            w={190}
                             h={130}
                             objectFit="scale-down"
                             objectPosition="center"
-                            mr={5}
+                            mr={6}
                             loading="lazy"/>
                             <VStack spacing={0} align="start">
                                 <Text fontSize="13px" color={'#F9F9FB'}>Final Price</Text>
-                                <Text fontSize="22px" color={'#F9F9FB'}>Rp {getFinalPrice(vehicle, pickupDate, dropoffDate).toLocaleString('id-ID')}</Text>
+                                <Text fontSize="28px" color={'#F9F9FB'}>Rp {getFinalPrice(vehicle, pickupDate, dropoffDate).toLocaleString('id-ID')}</Text>
                             </VStack>
                         </HStack>
                         <HStack justify="center">
-                            <VStack spacing={1} align="start" w={198}>
+                            <VStack spacing={0} align="start" w={198}>
                                 <Text fontSize="13px" color={'#F9F9FB'}>Car Name</Text>
-                                <Text fontSize="18px" color={'#F9F9FB'}>{vehicle.name}</Text>
+                                <Text fontSize="22px" color={'#F9F9FB'}>{vehicle.name}</Text>
                             </VStack>
-                            <VStack spacing={1} align="start" w={168}>
+                            <VStack spacing={0} align="start" w={168}>
                                 <Text fontSize="13px" color={'#F9F9FB'}>Car Brand</Text>
-                                <Text fontSize="18px" color={'#F9F9FB'}>{vehicle.brand}</Text>
+                                <Text fontSize="22px" color={'#F9F9FB'}>{vehicle.brand}</Text>
                             </VStack>
                         </HStack>
                         <HStack justify="center">
-                            <VStack spacing={1} align="start" w={198}>
+                            <VStack spacing={0} align="start" w={198}>
                                 <Text fontSize="13px" color={'#F9F9FB'}>Capacity</Text>
                                 <HStack>
-                                    <GoPersonFill size={22} color={'#F9F9FB'}/>
-                                    <Text fontSize="18px" color={'#F9F9FB'} ml="3">{vehicle.capacity}</Text>
+                                    <GoPersonFill size={24} color={'#F9F9FB'}/>
+                                    <Text fontSize="22px" color={'#F9F9FB'} mt="1" ml="3">{vehicle.capacity}</Text>
                                 </HStack>             
                             </VStack>
-                            <VStack spacing={1} align="start" w={168}>
+                            <VStack spacing={0} align="start" w={168}>
                                 <Text fontSize="13px" color={'#F9F9FB'}>Transmission</Text>
                                 <HStack>
-                                    <GiGearStickPattern size={22} color={'#F9F9FB'}/>
-                                    <Text fontSize="18px" color={'#F9F9FB'} ml="3">{getTransmission(vehicle)}</Text>
+                                    <GiGearStickPattern size={24} color={'#F9F9FB'}/>
+                                    <Text fontSize="22px" color={'#F9F9FB'} mt="1" ml="3">{getTransmission(vehicle)}</Text>
                                 </HStack>
                             </VStack>
                         </HStack>
@@ -164,26 +165,26 @@ export default function RentalPage() {
                             <VStack spacing={1} align="start" w={198}>
                                 <Text fontSize="13px" color={'#F9F9FB'}>Size</Text>
                                 <HStack>
-                                    <BsFillCarFrontFill size={22} color={'#F9F9FB'}/>
-                                    <Text fontSize="18px" color={'#F9F9FB'} ml="3">{vehicle.size}</Text>
+                                    <BsFillCarFrontFill size={24} color={'#F9F9FB'}/>
+                                    <Text fontSize="22px" color={'#F9F9FB'} mt="1" ml="3">{vehicle.size}</Text>
                                 </HStack>             
                             </VStack>   
                             <VStack w={168}></VStack>
                         </HStack>
                         <HStack justify="center">
-                            <VStack spacing={1} align="start"  w={198}>
+                            <VStack spacing={0} align="start"  w={198}>
                                 <Text fontSize="13px" color={'#F9F9FB'}>Pick-up Date</Text>
-                                <Text fontSize="18px" color={'#F9F9FB'}>{format(new Date(pickupDate), 'dd/MM/yyyy')}</Text>
+                                <Text fontSize="22px" color={'#F9F9FB'}>{format(new Date(pickupDate), 'dd/MM/yyyy')}</Text>
                             </VStack>
-                            <VStack spacing={1} align="start" w={168}>
+                            <VStack spacing={0} align="start" w={168}>
                                 <Text fontSize="13px" color={'#F9F9FB'}>Drop-off Date</Text>
-                                <Text fontSize="18px" color={'#F9F9FB'}>{format(new Date(dropoffDate), 'dd/MM/yyyy')}</Text>
+                                <Text fontSize="22px" color={'#F9F9FB'}>{format(new Date(dropoffDate), 'dd/MM/yyyy')}</Text>
                             </VStack>
                         </HStack>
                         <HStack justify="center">
-                            <VStack spacing={1} align="start" w={198}>
+                            <VStack spacing={0} align="start" w={198}>
                                 <Text fontSize="13px" color={'#F9F9FB'}>Location</Text>
-                                <Text fontSize="18px" color={'#F9F9FB'}>{location}</Text>
+                                <Text fontSize="22px" color={'#F9F9FB'}>{location}</Text>
                             </VStack>   
                             <VStack w={168}></VStack>
                         </HStack>
@@ -211,7 +212,7 @@ export default function RentalPage() {
                             </Text>
                         </Stack>
                         <Box as={'form'} mt={1} mr={5} ml={5}>
-                            <Stack spacing={1}>
+                            <Stack spacing={0}>
                                 <FormLabel>First Name</FormLabel>
                                 <Input
                                 bg={"#D9DDE9"}
@@ -228,7 +229,7 @@ export default function RentalPage() {
                                 }}
                                 />
                             </Stack>
-                            <Stack spacing={1}>
+                            <Stack spacing={0}>
                                 <FormLabel>Last Name</FormLabel>
                                 <Input
                                 bg={"#D9DDE9"}
@@ -245,7 +246,7 @@ export default function RentalPage() {
                                 }}
                                 />
                             </Stack>
-                            <Stack spacing={1}>
+                            <Stack spacing={0}>
                                 <FormLabel>Phone Number</FormLabel>
                                 <InputGroup>
                                     <InputLeftElement
@@ -264,9 +265,9 @@ export default function RentalPage() {
                                     paddingLeft="60px"
                                     borderRadius={20}
                                     mb={2.5}
-                                    boxShadow={isPhoneNumberNotValid ? "0 0 0 1px red" : "0 0 0 0"}
+                                    boxShadow={isPhoneNumberNotValid ? "0 0 0 1px red.500" : "0 0 0 0"}
                                      _hover={{ bg: "#E2E8F0" }} 
-                                     sx={isPhoneNumberNotValid ? { ":focus": { boxShadow: "0 0 0 1.5px red" } } : {}}
+                                     sx={isPhoneNumberNotValid ? { ":focus": { boxShadow: "0 0 0 1.5px red.500" } } : {}}
                                     value={phoneNumber} onChange={e => {
                                         const val = e.target.value;
                                         if (val.length > 12) return;
@@ -278,8 +279,8 @@ export default function RentalPage() {
                                 </InputGroup>
                                 {isPhoneNumberNotValid && 
                                 <Flex direction="row" w="300px" align="center">
-                                    <WarningIcon color="red" w={4} h={4} />
-                                    <Text color="red" fontSize="sm" mt={0.5} mb={0} ml={3} mr={3} textAlign="center">
+                                    <WarningIcon color="red.500" w={4} h={4} />
+                                    <Text color="red.500" fontSize="sm" mt={0.5} mb={0} ml={3} mr={3} textAlign="center">
                                     Phone number must be at least 8 digits
                                     </Text>
                                 </Flex>
@@ -290,7 +291,7 @@ export default function RentalPage() {
                             fontFamily={'heading'}
                             h="50px"
                             borderRadius={20}
-                            mt={4}
+                            mt={isPhoneNumberNotValid ? 4 : "39px"}
                             w={'full'}
                             bg={'#E84C83'}
                             color={'#F9F9FB'}
