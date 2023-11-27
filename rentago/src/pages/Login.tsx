@@ -142,7 +142,7 @@ export default function LoginPage() {
                     <FormLabel fontSize={13}>Get a reset link through your email</FormLabel>
                     <Input bg="#D9DDE9" border={0} _hover={{ bg: "#E2E8F0" }} color="black" type="email" borderRadius="15px" value={email} onChange={(e) => setEmail(e.target.value)} />
                   </FormControl>
-                  <Button bg="#E84C83" color="#FFFFFF" fontSize={13} variant={'solid'} h="35px" w="287px" mb="5px" borderRadius="20px" onClick={handleSendResetLink}>
+                  <Button bg="#E84C83" color="#FFFFFF" fontSize={13} fontWeight={'normal'} variant={'solid'} h="40px" w="287px" mb="5px" borderRadius="20px" onClick={handleSendResetLink}>
                     Send Reset Link
                   </Button>
                 </Stack>
