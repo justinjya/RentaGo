@@ -84,7 +84,7 @@ export default function Catalog() {
     fetchCatalogue()
   }, [supabase, type, pickupDate, dropoffDate, location, minPrice, maxPrice, transmission, capacity, size, rating, page, pageSize])
 
-  const handleRentCar = (vehicle: any) => {
+  const handleRentNow = (vehicle: any) => {
     setVehicle(vehicle);
     navigate("/rent");
   };
@@ -288,7 +288,7 @@ export default function Catalog() {
                           <Spacer/>
                         </Box>
                         <Button 
-                          onClick={() => handleRentCar(vehicle)}
+                          onClick={() => handleRentNow(vehicle)}
                           fontSize="16px"
                           bg="#E84D83" 
                           color="#F9F9FB" 
@@ -298,7 +298,7 @@ export default function Catalog() {
                           height="40px" 
                           _hover={{ bg: "#E84D83" }}
                           fontWeight="normal">
-                          Rent Car
+                          Rent Now
                         </Button>
                       </HStack>
                     </Box>
