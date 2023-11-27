@@ -16,6 +16,7 @@ import History from './pages/History';
 import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register';
 import ProfilePage from './pages/Profile';
+import Error from './pages/Error';
 
 function App() {
   const supabase = useSupabase()
@@ -67,6 +68,7 @@ function App() {
                   <Route path="/pay" element={<Payment />} />
                   <Route path="/history" element={<History />} />
                   <Route path="/profile" element={<ProfilePage />} />
+                  <Route path="/error" element={<Error />} />
                 </Routes>
               </Box>
             </Box>
