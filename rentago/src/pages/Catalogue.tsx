@@ -131,13 +131,13 @@ export default function Catalog() {
                   <VStack alignItems={"start"} spacing={2}>
                     <Text fontSize="14px">Min</Text>
                     <Box bg="#D9DDE9" w="120px" h="40px" borderRadius="15" display="flex" alignItems="center" justifyContent="center">
-                      Rp {minPrice.toLocaleString('id-ID')}
+                      Rp{minPrice.toLocaleString('id-ID')}
                     </Box>
                   </VStack>
                   <VStack alignItems={"start"} spacing={2}>
                     <Text fontSize="14px">Max</Text>
                     <Box bg="#D9DDE9" w="120px" h="40px" borderRadius="15" display="flex" alignItems="center" justifyContent="center">
-                      Rp {maxPrice.toLocaleString('id-ID')}
+                      Rp{maxPrice.toLocaleString('id-ID')}
                     </Box>
                   </VStack>
                 </HStack>
@@ -234,7 +234,7 @@ export default function Catalog() {
                       <HStack align={'start'} justify={'space-between'}>
                           <Flex w="100%" align="end">
                             <Text fontSize={28}>
-                                Rp {vehicle.price.toLocaleString('id-ID')}
+                                Rp{vehicle.price.toLocaleString('id-ID')}
                             </Text>
                             <Text fontSize={14}>
                                 /day
