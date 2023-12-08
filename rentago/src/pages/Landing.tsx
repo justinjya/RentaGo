@@ -73,7 +73,7 @@ const LandingPage: React.FC = () => {
     }
 
     fetchLocations();
-  });
+  }, []);
 
   const [currentMonth, setCurrentMonth] = useState(new Date());
 	const [nextMonth, setNextMonth] = useState(addMonths(currentMonth, 1));
